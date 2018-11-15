@@ -21,36 +21,99 @@ var articles = [
 
 // Votre code à partir d'ici :
 
-var i = 0;
+function Liste () {
 
-while (i < articles.length) {
+    var i = 0;
 
-    var liste = document.createElement('li');
+    while (i < articles.length) {
 
-    document.getElementById('listeCourse').appendChild(liste);
+        var liste = document.createElement('li');
 
-    liste.innerHTML = articles[i];
+        document.getElementById('listeCourse').appendChild(liste);
 
-    var bouton = document.createElement('button');
+        liste.innerHTML = articles[i];
 
-    liste.appendChild(bouton);
+        liste.style.fontSize = "20px";
 
-    document.addEventListener("click", function () {
+        var Btn = document.createElement('button');
 
-        if (bouton < articles) {
-            articles.style.display = 'none';
-            articles.style.display = "block";
-        }
+        document.getElementById('listeCourse').appendChild(Btn);
 
-        if (bouton > articles) {
-            articles.style.display = "none";
-        }
-      });
+        Btn.innerHTML = articles[i];
 
-    i++;
+        Btn.id = 'Btn';
+
+        liste.id = 'Liste';
+
+
+
+        i++;   
+
+    }
 
 }
 
+var Diiv = document.createElement('div');
+
+var Recherche = document.createElement('input');
+
+document.getElementById('viewport').appendChild(Recherche);
+
+Diiv.innerHTML = Recherche;
+
+var Valider = document.createElement('button');
+
+document.getElementById('viewport').appendChild(Valider);
+
+Valider.innerHTML = 'Valider';
+
+Recherche.id = 'barre';
+
+Valider.id = 'bouton';
+
+Recherche.setAttribute('type', 'text');
+
+Liste ();
 
 
 
+document.getElementById('bouton').addEventListener("click",
+    function () {
+
+    document.getElementById('listeCourse').innerHTML = '';
+
+    articles.push(document.getElementById('barre').value);
+
+    Liste ();
+
+    Div.innerHTML = "J'ai besoin de" + " " + articles;
+
+});
+
+
+
+var Bouton = document.createElement('button');
+
+document.getElementById('viewport').appendChild(Bouton);
+
+Bouton.innerHTML = 'Supprimer';
+
+Bouton.id = 'Supprimer';
+
+
+
+document.getElementById('Supprimer').addEventListener("click", function () {
+
+    document.getElementById('listeCourse').innerHTML = '';
+
+    articles.pop();
+
+    Liste ();
+
+    Div.innerHTML = "J'ai besoin de" + " " + articles;
+
+});
+
+var Div = document.createElement('div');
+
+document.getElementById('viewport').appendChild(Div);
